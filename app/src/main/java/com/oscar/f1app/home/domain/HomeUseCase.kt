@@ -9,5 +9,7 @@ class HomeUseCase @Inject constructor(private val homeRepository: HomeRepository
 
     suspend operator fun invoke(): List<DriverResponse>?{
         return homeRepository.getDrivers();
+
     }
+
 }
