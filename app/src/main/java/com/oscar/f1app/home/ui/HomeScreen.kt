@@ -24,7 +24,7 @@ fun HomeScreen(modifier: Modifier, HomeViewModel: HomeViewModel){
 
         items(drivers!!){
             DriverCard(modifier = Modifier, it);
-            Spacer(modifier = Modifier.height(5.dp))
+            Spacer(modifier = Modifier.height(10.dp))
         }
 
 
