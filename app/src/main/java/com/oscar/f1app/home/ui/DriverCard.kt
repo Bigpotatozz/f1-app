@@ -51,37 +51,62 @@ fun DriverCard(modifier: Modifier, driver: DriverResponse){
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
         ){
-
             Column(Modifier.padding(1.dp)){
-                Text(text = driver.first_name, style = TextStyle( fontSize = 20.sp,
-                    fontFamily = NunitoFamily,
-                    fontWeight = FontWeight.Normal,
-                    color = Color.White))
-                Text(text = driver.last_name,
-                    style = TextStyle(fontSize = 25.sp, color = Color.White, fontWeight = FontWeight.Bold))
+
+                Row(modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween){
+                    Column {
+                        Text(text = driver.first_name, style = TextStyle( fontSize = 20.sp,
+                            fontFamily = NunitoFamily,
+                            fontWeight = FontWeight.Normal,
+                            color = Color.White))
+                        Text(text = driver.last_name,
+                            style = TextStyle(fontSize = 25.sp, color = Color.White, fontWeight = FontWeight.Bold))
+
+                    }
+                    Column {
+                        AsyncImage(
+                            model = driver.headshot_url,
+                            contentDescription = "foto del piloto",
+                            modifier = Modifier
+                                .clip(RoundedCornerShape(10.dp))
+                                .height(50.dp)
+                        )
+                    }
+
+                }
+
 
                 HorizontalDivider(thickness = 2.dp,
                     color = Color(colorLong),
                     modifier = Modifier.padding(top = 15.dp))
 
-                Box(Modifier.padding(top = 15.dp).clip(RoundedCornerShape(5.dp)).background(Color(colorLong))){
-                    Text("${driver.team_name}",
-                        modifier = Modifier.padding(5.dp),
-                        style = TextStyle(fontSize = 15.sp, color = Color.White, fontWeight = FontWeight.Normal))
+                Row {
+                    BoxStats(driver.team_name, colorLong)
+
+                    BoxStats(driver.driver_number.toString(), colorLong)
+                    BoxStats(driver.name_acronym, colorLong)
                 }
-            }
 
-            Column {
-                AsyncImage(
-                    model = driver.headshot_url,
-                    contentDescription = "foto del piloto",
-                    modifier = Modifier
-                        .clip(RoundedCornerShape(10.dp))
-                        .height(50.dp)
-                )
+
             }
 
 
+
+
+
+
+
+    }
+
+}
+
+@Composable
+fun BoxStats(info: String, teamColor: Long){
+    Box(Modifier.padding(top = 15.dp, end = 8.dp).clip(RoundedCornerShape(5.dp)).background(Color(teamColor))){
+        Text("${info}",
+            modifier = Modifier.padding(5.dp),
+            style = TextStyle(fontSize = 15.sp, color = Color.White, fontWeight = FontWeight.Normal))
 
     }
 }
