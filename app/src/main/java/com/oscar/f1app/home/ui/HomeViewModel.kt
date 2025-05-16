@@ -28,25 +28,10 @@ class HomeViewModel @Inject constructor(private val homeUseCase: HomeUseCase): V
     fun getDrivers(){
         viewModelScope.launch {
             _drivers.value = homeUseCase.invoke();
-
-            verstappenDetector();
         }
     }
 
-    fun verstappenDetector(){
 
-       var driversModified =  _drivers.value!!.map {
-
-            if(it.first_name == "Max"){
-                it.copy(first_name = "Putote")
-            }else{
-                it
-            }
-        }
-
-
-       _drivers.value = driversModified;
-    }
 
 
 

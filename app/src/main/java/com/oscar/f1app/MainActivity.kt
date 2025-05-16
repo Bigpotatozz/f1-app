@@ -52,7 +52,7 @@ class MainActivity : ComponentActivity() {
                 Scaffold(modifier = Modifier.fillMaxSize(),
                     bottomBar = { NavBar() })
                 { innerPadding ->
-                    HomeScreen(modifier = Modifier.padding(innerPadding).background(color  = Color(0xFF393E46)), homeViewModel)
+                    HomeScreen(modifier = Modifier.padding(innerPadding), homeViewModel)
 
 
                 }
