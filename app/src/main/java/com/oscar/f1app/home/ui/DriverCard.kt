@@ -47,11 +47,11 @@ fun DriverCard(modifier: Modifier, driver: DriverResponse){
         .background(color = Color(0xFF222831))
         .padding(10.dp)
         .fillMaxWidth()
-        .height(150.dp),
+        .height(200.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
         ){
-            Column(Modifier.padding(1.dp)){
+            Column(Modifier.padding(3.dp)){
 
                 Row(modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceBetween){
@@ -65,14 +65,10 @@ fun DriverCard(modifier: Modifier, driver: DriverResponse){
 
                     }
                     Column {
-                        AsyncImage(
-                            model = driver.headshot_url,
-                            contentDescription = "foto del piloto",
-                            modifier = Modifier
-                                .clip(RoundedCornerShape(10.dp))
-                                .height(50.dp)
-                        )
-                    }
+                        Image(painter = painterResource(id = driver.photo),
+                            contentDescription = "Adawdaw", modifier = Modifier.size(100.dp));
+                           }
+
 
                 }
 
@@ -83,7 +79,6 @@ fun DriverCard(modifier: Modifier, driver: DriverResponse){
 
                 Row {
                     BoxStats(driver.team_name, colorLong)
-
                     BoxStats(driver.driver_number.toString(), colorLong)
                     BoxStats(driver.name_acronym, colorLong)
                 }

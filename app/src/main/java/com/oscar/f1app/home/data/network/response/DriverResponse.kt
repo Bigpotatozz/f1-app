@@ -1,6 +1,7 @@
 package com.oscar.f1app.home.data.network.response
 
 import com.google.gson.annotations.SerializedName
+import com.oscar.f1app.R
 
 data class DriverResponse (@SerializedName("driver_number") val driver_number: Int,
                            @SerializedName("broadcast_name") val broadcast_name: String,
@@ -13,4 +14,5 @@ data class DriverResponse (@SerializedName("driver_number") val driver_number: I
                            @SerializedName("headshot_url") val headshot_url: String,
                            @SerializedName("country_code") val country_code: String,
                            @SerializedName("session_key") val session_key: Int,
-                           @SerializedName("meeting_key") val meeting_key: Int){}
+                           @SerializedName("meeting_key") val meeting_key: Int,
+                            var photo: Int = R.drawable.ic_launcher_background){}
