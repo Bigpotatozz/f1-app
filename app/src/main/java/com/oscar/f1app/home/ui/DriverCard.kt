@@ -43,19 +43,21 @@ fun DriverCard(modifier: Modifier, driver: DriverResponse){
 
 
     Row (modifier = Modifier
-        .clip(RoundedCornerShape(10.dp))
-        .background(color = Color(0xFF222831))
-        .padding(10.dp)
+        .clip(RoundedCornerShape(25.dp))
+        .background(color = Color(0xFF1A1A1D))
+        .padding(start = 20.dp, end = 20.dp, bottom = 15.dp, top = 8.dp)
         .fillMaxWidth()
         .height(200.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
         ){
-            Column(Modifier.padding(3.dp)){
+            Column(Modifier){
+
+
 
                 Row(modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceBetween){
-                    Column {
+                    Column(Modifier.padding(top = 15.dp)){
                         Text(text = driver.first_name, style = TextStyle( fontSize = 20.sp,
                             fontFamily = NunitoFamily,
                             fontWeight = FontWeight.Normal,
@@ -64,9 +66,10 @@ fun DriverCard(modifier: Modifier, driver: DriverResponse){
                             style = TextStyle(fontSize = 25.sp, color = Color.White, fontWeight = FontWeight.Bold))
 
                     }
-                    Column {
+                    Column (){
                         Image(painter = painterResource(id = driver.photo),
-                            contentDescription = "Adawdaw", modifier = Modifier.size(100.dp));
+                            contentDescription = "Adawdaw", modifier = Modifier.size(130.dp).
+                                                            clip(RoundedCornerShape(15.dp)));
                            }
 
 
